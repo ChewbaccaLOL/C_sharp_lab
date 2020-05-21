@@ -3,6 +3,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        //Factory
         Guest g1 = new Guest(10, "guest10");
         g1.Create();
         LoggedUser l1 = new LoggedUser(11, "user007");
@@ -11,13 +12,25 @@ class Program
         m1.Create();
         Admin a1 = new Admin(13, "adminushka2345");
         a1.Create();
+        //Singleton
         SuperUser su1 = new SuperUser(14, "owner0987");
         su1.Create();
-
+        //Facade
         Facade facade1 = new Facade(new Article(), new Commentary());
         facade1.Operation1();
         facade1.Operation2();
+        //Command
+        Commentary cmntr1 = new Commentary();
+        Article artcl = new Article();
+        su1.SetCommand(new ArticleOnCommand(artcl));
+        su1.DoSomething();
+        su1.UndoSomething();
+        su1.SetCommand(new CommentaryOnCommand(cmntr1));
+        su1.DoSomething();
+        su1.UndoSomething();
+
         Console.ReadLine();
+
     }
 }
 
@@ -127,7 +140,18 @@ public class Article : Post
     {
         Console.WriteLine("Something happened to Article...");
     }
+    public void WriteArticle()
+    {
+        Console.WriteLine("Article is written :)");
+
+    }
+    public void DeleteArticle()
+    {
+        Console.WriteLine("Article is deleted :(");
+
+    }
 }
+
 
 public class Commentary : Post
 {
@@ -139,6 +163,17 @@ public class Commentary : Post
     {
         Console.WriteLine("Something happened to Commentary...");
     }
+    public void WriteCommentary()
+    {
+        Console.WriteLine("Commentary is written :)");
+
+    }
+    public void DeleteCommentary()
+    {
+        Console.WriteLine("Commentary is deleted :(");
+
+    }
+
 }
 
 public class Facade
@@ -161,6 +196,48 @@ public class Facade
     }
 }
 
+interface ICommand
+{
+    void Execute();
+    void Undo();
+}
+
+class CommentaryOnCommand : ICommand
+{
+    Commentary cm;
+    public CommentaryOnCommand(Commentary cmSet)
+    {
+        cm = cmSet;
+    }
+    public void Execute()
+    {
+        cm.WriteCommentary();
+    }
+    public void Undo()
+    {
+        cm.DeleteCommentary();
+    }
+}
+
+class ArticleOnCommand : ICommand
+{
+    Article artcl;
+    public ArticleOnCommand(Article artclSet)
+    {
+        artcl = artclSet;
+    }
+    public void Execute()
+    {
+        artcl.WriteArticle();
+    }
+    public void Undo()
+    {
+        artcl.DeleteArticle();
+    }
+}
+
+
+
 class SuperUser : Admin
 {
     private static SuperUser instance;
@@ -182,6 +259,21 @@ class SuperUser : Admin
         Console.WriteLine($"Super user {Login} wrote something...");
         return new Article();
     }
+
+    ICommand command;
+    public void SetCommand(ICommand com)
+    {
+        command = com;
+    }
+    public void DoSomething()
+    {
+        command.Execute();
+    }
+    public void UndoSomething()
+    {
+        command.Undo();
+    }
+
 }
 
 
