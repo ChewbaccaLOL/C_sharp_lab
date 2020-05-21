@@ -13,6 +13,10 @@ class Program
         a1.Create();
         SuperUser su1 = new SuperUser(14, "owner0987");
         su1.Create();
+
+        Facade facade1 = new Facade(new Article(), new Commentary());
+        facade1.Operation1();
+        facade1.Operation2();
         Console.ReadLine();
     }
 }
@@ -28,7 +32,7 @@ abstract class Person
         Login = l;
     }
     abstract public Post Create();
-    ч
+    
 }
 
 class VisitingUser : Person
@@ -108,24 +112,52 @@ class Admin : ModeratingUser
 }
 
 
-abstract class Post
+abstract public class Post
 {
 
 }
 
-class Article : Post
+public class Article : Post
 {
     public Article()
     {
         Console.WriteLine("Article creatrd!");
     }
+    public void SomeAction()
+    {
+        Console.WriteLine("Something happened to Article...");
+    }
 }
 
-class Commentary : Post
+public class Commentary : Post
 {
     public Commentary()
     {
         Console.WriteLine("Commentary creatrd!");
+    }
+    public void SomeAction()
+    {
+        Console.WriteLine("Something happened to Commentary...");
+    }
+}
+
+public class Facade
+{
+    Article a1;
+    Commentary c1;
+    public Facade(Article a, Commentary c)
+    {
+        a1 = a;
+        c1 = c;
+    }
+    public void Operation1()
+    {
+        a1.SomeAction();
+        c1.SomeAction();
+    }
+    public void Operation2()
+    {
+        c1.SomeAction();
     }
 }
 
