@@ -28,6 +28,14 @@ class Program
         su1.SetCommand(new CommentaryOnCommand(cmntr1));
         su1.DoSomething();
         su1.UndoSomething();
+        //Mediator
+        ManagerMediator mediator = new ManagerMediator();
+        SystemUser customer = new CustomerSystemUser(mediator);
+        SystemUser moder = new ModeratingSystemUser(mediator);
+        mediator.Customer = customer;
+        mediator.Moder = moder;
+        customer.Send("Please, add article on this topic...");
+        moder.Send("Okay, here it is...");
 
         Console.ReadLine();
 
@@ -151,7 +159,6 @@ public class Article : Post
 
     }
 }
-
 
 public class Commentary : Post
 {
@@ -278,3 +285,61 @@ class SuperUser : Admin
 
 
 
+
+abstract class Mediator
+{
+    public abstract void Send(string msg, SystemUser colleague);
+}
+abstract class SystemUser
+{
+    protected Mediator mediator;
+
+    public SystemUser(Mediator mediator)
+    {
+        this.mediator = mediator;
+    }
+
+    public virtual void Send(string message)
+    {
+        mediator.Send(message, this);
+    }
+    public abstract void Notify(string message);
+}
+//Customer
+class CustomerSystemUser : SystemUser
+{
+    public CustomerSystemUser(Mediator mediator)
+        : base(mediator)
+    { }
+
+    public override void Notify(string message)
+    {
+        Console.WriteLine("Message to customers: " + message);
+    }
+}
+// Moder
+class ModeratingSystemUser : SystemUser
+{
+    public ModeratingSystemUser(Mediator mediator)
+        : base(mediator)
+    { }
+
+    public override void Notify(string message)
+    {
+        Console.WriteLine("Message to moderators: " + message);
+    }
+}
+
+
+class ManagerMediator : Mediator
+{
+    public SystemUser Customer { get; set; }
+    public SystemUser Moder { get; set; }
+    public override void Send(string msg, SystemUser colleague)
+    {
+        if (Customer == colleague)
+            Moder.Notify(msg);
+        else if (Moder == colleague)
+            Customer.Notify(msg);
+    }
+}
