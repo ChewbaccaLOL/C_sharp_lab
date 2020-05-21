@@ -1,0 +1,7 @@
+C:\Users\volko\source\repos\Project19\Project19\bin\Debug\Project19.exe.config
+C:\Users\volko\source\repos\Project19\Project19\bin\Debug\Project19.exe
+C:\Users\volko\source\repos\Project19\Project19\bin\Debug\Project19.pdb
+C:\Users\volko\source\repos\Project19\Project19\obj\Debug\Project19.csprojAssemblyReference.cache
+C:\Users\volko\source\repos\Project19\Project19\obj\Debug\Project19.csproj.CoreCompileInputs.cache
+C:\Users\volko\source\repos\Project19\Project19\obj\Debug\Project19.exe
+C:\Users\volko\source\repos\Project19\Project19\obj\Debug\Project19.pdb
