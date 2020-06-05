@@ -6,7 +6,7 @@ using DAL.Repository.Interfaces;
 
 namespace DAL.Repository.Interfaces
 {
-    interface IThumbNailsRepository
+    public interface IThumbNailsRepository
         :IRepository<thumbNails>
     {
     }
