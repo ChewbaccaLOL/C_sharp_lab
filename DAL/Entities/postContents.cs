@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DAL.Entities
 {
-    class postContents
+    public class postContents
     {
         public int postContentID { get; set; }
         public string postContent { get; set; }

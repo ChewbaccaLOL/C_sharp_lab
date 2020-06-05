@@ -6,7 +6,7 @@ using DAL.Repository.Interfaces;
 
 namespace DAL.Repository.Interfaces
 {
-    interface IAdminRepository
+    public interface IAdminRepository
         :IRepository<admins>
     {
     }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DAL.Entities
 {
-    class admins
+    public class admins
     {
         public int adminID { get; set; }
         public string adminName { get; set; }
