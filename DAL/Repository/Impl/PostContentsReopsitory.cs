@@ -8,10 +8,10 @@ using DAL.Repository.Interfaces;
 
 namespace DAL.Repository.Impl
 {
-    class PostContentsReopsitory
+    class PostContentsRepository
         :BaseRepository<postContents>, IPostContentsRepository
     {
-        internal PostContentsReopsitory(PostContext context)
+        internal PostContentsRepository(PostContext context)
             : base(context)
         {
 
