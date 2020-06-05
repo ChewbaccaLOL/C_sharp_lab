@@ -335,11 +335,11 @@ class ManagerMediator : Mediator
 {
     public SystemUser Customer { get; set; }
     public SystemUser Moder { get; set; }
-    public override void Send(string msg, SystemUser colleague)
+    public override void Send(string msg, SystemUser sysuser)
     {
-        if (Customer == colleague)
+        if (Customer == sysuser)
             Moder.Notify(msg);
-        else if (Moder == colleague)
+        else if (Moder == sysuser)
             Customer.Notify(msg);
     }
 }
