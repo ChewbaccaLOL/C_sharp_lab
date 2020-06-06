@@ -11,13 +11,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Tests
 {
-    class TestPostRepository
-            : BaseRepository<posts>
-    {
-        public TestPostRepository(DbContext context)
-            :base(context)
-        {
+    //class TestPostRepository
+    //        : BaseRepository<posts>
+    //{
+    //    public TestPostRepository(DbContext context)
+    //        :base(context)
+    //    {
 
-        }
-    }
+    //    }
+    //}
 }
