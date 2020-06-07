@@ -8,7 +8,7 @@ using DAL.Repository.Interfaces;
 
 namespace DAL.UnitOfWork
 {
-    interface IUnitOfWork: IDisposable
+    public interface IUnitOfWork: IDisposable
     {
         IAdminRepository adminss { get; }
         IPostContentsRepository postContentss { get; }

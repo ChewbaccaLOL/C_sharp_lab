@@ -5,3 +5,10 @@ C:\Users\volko\source\repos\Project19\BLL\obj\Debug\netcoreapp2.1\BLL.csprojAsse
 C:\Users\volko\source\repos\Project19\BLL\obj\Debug\netcoreapp2.1\BLL.csproj.CoreCompileInputs.cache
 C:\Users\volko\source\repos\Project19\BLL\obj\Debug\netcoreapp2.1\BLL.AssemblyInfoInputs.cache
 C:\Users\volko\source\repos\Project19\BLL\obj\Debug\netcoreapp2.1\BLL.AssemblyInfo.cs
+C:\Users\volko\source\repos\Project19\BLL\bin\Debug\netcoreapp2.1\BLL.deps.json
+C:\Users\volko\source\repos\Project19\BLL\bin\Debug\netcoreapp2.1\BLL.dll
+C:\Users\volko\source\repos\Project19\BLL\bin\Debug\netcoreapp2.1\BLL.pdb
+C:\Users\volko\source\repos\Project19\BLL\bin\Debug\netcoreapp2.1\CCL.pdb
+C:\Users\volko\source\repos\Project19\BLL\obj\Debug\netcoreapp2.1\BLL.csproj.CopyComplete
+C:\Users\volko\source\repos\Project19\BLL\obj\Debug\netcoreapp2.1\BLL.dll
+C:\Users\volko\source\repos\Project19\BLL\obj\Debug\netcoreapp2.1\BLL.pdb
